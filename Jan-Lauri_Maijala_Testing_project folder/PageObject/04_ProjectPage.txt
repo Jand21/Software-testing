@@ -1,0 +1,125 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+# TODO: Write Dcocumentation e.g. Project Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+Documentation	Test cycle objective is that user can create project, project can be seen, updated and deleted.
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition	 Browser is opened, User is logged in Gitlab and moved to new project tab.
+Post Condition	Project is created and browser can be closed.
+Tags
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Project creation field variables
+
+Blank project information:
+	Project name: First project
+	Project url: https://gitlab.com/jan-lauri/first-project
+	Visibility level: Private
+	Project configuration: Initialize repository with a README
+
+Template project information:
+	Project name: First template
+	project url: https://gitlab.com/jan-lauri/first-template
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test cases
+
+	Create blank project
+
+
+	Test1:
+	Choose Create blank project
+	Expected:
+	User is moved to "Create blank project" tab.
+	
+	Test2:
+	Fill in information mentioned in variables.
+	Expected:
+	Information can be filled in.
+	
+	Test3:
+	Press create project
+	Expected:
+	First project is created.
+	
+	Test4:
+	Press on README.md
+	Expected:
+	User is moved to instruction page.
+	
+	Test5:
+	Press on edit and choose this file only.
+	Expected:
+	User moved to edit form of readme and readme can be edited.
+
+	Test6:
+	Write "testing testing" in row 2 and press commit changes.
+	Expected:
+	Notification appears "Your changes have been succesfully committed".
+
+	Test7:
+	Press on "Delete" buttom and choose "Delete file"
+	Expected:
+	
+
+	Create template project
+	Update name of template project
+
+	Test1:
+	Choose create from template
+	Expected:
+	User is moved to list of build-ins
+
+	Test2:
+	Choose the build-in that fits best. (for example we can use template "pages/plain HTML" in this scenario)
+	Select correct line and press "use template".
+	Expected:
+	User is moved to selected template creation.
+	
+	Test3:
+	Name project as "first template" and press create project.
+	Expected:
+	New template is created and message "The project was successfully imported." is shown.
+	
+
+	
+
+
+# Negative Test examples are below write test process steps for each below test case
+
+	Create a blank project with the previous same name
+	
+	Preconditions: Must be done after situation like posititive test3.
+	
+	Test1:
+	Choose Create blank project
+	Expected:
+	User is moved to "Create blank project" tab.
+	
+	Test2:
+	Fill in information mentioned in variables.
+	Expected:
+	Information can be filled in.
+	
+	Test3:
+	Press create project
+	Expected:
+	Error notification appears "The form contains the following errors: 
+	-Project namespace name has already been taken
+	-Name has already been taken
+	-Path has already been taken."
